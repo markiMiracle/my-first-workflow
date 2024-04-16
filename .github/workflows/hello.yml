@@ -1,0 +1,8 @@
+name: hello-world
+on: push
+jobs:
+  build:
+    runs-on: macOs
+    steps:
+      - uses: actions/checkout@v3
+       run – make say-hello
