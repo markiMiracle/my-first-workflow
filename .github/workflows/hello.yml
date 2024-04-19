@@ -2,7 +2,7 @@ name: hello
 # on – определяет события, которые запускают воркфлоу
 on: push
 jobs:
-  build-without-cache:
+ build-with-gradle-build-action-cache:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -11,5 +11,6 @@ jobs:
         with:
           java-version: 17
           distribution: 'adopt'
-      - name: Build with Gradle
-        run: ./gradlew build --scan
+      - uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build --scan
